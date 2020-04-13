@@ -31,7 +31,7 @@ try {
 let productServiceExists = false;
 let ProductService;
 try {
-  ProductService = require('../../app/product.service.ts').ProductService;
+  ProductService = require('../../app/services/product.service.js').ProductService;
   productServiceExists = true;
 } catch (e) {
   productServiceExists = false;

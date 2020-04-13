@@ -26,7 +26,7 @@ try {
 let productServiceExists = false;
 let ProductService;
 try {
-  ProductService = require('../../app/product.service.ts').ProductService;
+  ProductService = require('../../app/services/product.service.js').ProductService;
   productServiceExists = true;
 } catch (e) {
   productServiceExists = false;
@@ -75,7 +75,7 @@ describe('ProductListComponent', () => {
     since('The content of your ProductListComponent HTML list items aren\'t wrapped in anchor tags.').expect(ProductListFixture.nativeElement.querySelectorAll('li a').length).toBe(2);
 
     if (ProductListFixture.nativeElement.querySelectorAll('li a').length > 0) {
-      
+
       since('The first list item tag is missing a `routerLink` attribute with the correct value.').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[0].getAttribute('ng-reflect-router-link')).toContain('product/1');
       since('The second list item tag is missing a `routerLink` attribute with the correct value.').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[1].getAttribute('ng-reflect-router-link')).toContain('product/2');
 

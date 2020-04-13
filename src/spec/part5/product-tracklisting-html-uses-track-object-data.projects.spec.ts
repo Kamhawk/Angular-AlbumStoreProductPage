@@ -26,7 +26,7 @@ try {
 let productServiceExists = false;
 let ProductService;
 try {
-  ProductService = require('../../app/product.service.ts').ProductService;
+  ProductService = require('../../app/services/product.service.js').ProductService;
   productServiceExists = true;
 } catch (e) {
   productServiceExists = false;
@@ -146,5 +146,5 @@ describe('ProductTracklisting', () => {
       since('The tracklisting data is not being populated by a JSON response yet.').expect(0).toBe(1);
     }
   }));
-  
+
 });

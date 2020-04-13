@@ -15,7 +15,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 let productServiceExists = false;
 let ProductService;
 try {
-  ProductService = require('../../app/product.service.ts').ProductService;
+  ProductService = require('../../app/services/product.service.js').ProductService;
   productServiceExists = true;
 } catch (e) {
   productServiceExists = false;
@@ -27,7 +27,7 @@ describe('ProductService', () => {
   let mock_backend;
 
   beforeEach(async(() => {
-  
+
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
       providers: [ProductService, MockBackend, BaseRequestOptions,
@@ -59,7 +59,7 @@ describe('ProductService', () => {
     } else if(product_service.getProducts != undefined && product_service.getAlbum.subscribe == undefined) {
       let ps = product_service.getProducts(null);
       since('It doesn\'t look like you\'re returning the result of calling `this._http.get()` and passing `this._productsUrl` as a parameter.').expect(product_service._http._backend.connectionsArray.length).toBeGreaterThan(0);
-      since('It doesn\'t look like you\'re returning the result of calling `this._http.get()` and passing `this._productsUrl` as a parameter.').expect(product_service._http._backend.connectionsArray[0].request.url).toBe('../assets/products.json');        
+      since('It doesn\'t look like you\'re returning the result of calling `this._http.get()` and passing `this._productsUrl` as a parameter.').expect(product_service._http._backend.connectionsArray[0].request.url).toBe('../assets/products.json');
     } else {
     }
   }));
