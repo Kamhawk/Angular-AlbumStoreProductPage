@@ -32,7 +32,7 @@ try {
 let productServiceExists = false;
 let ProductService;
 try {
-  ProductService = require('../../app/services/product.service.js').ProductService;
+  ProductService = require('../../app/product.service.js').ProductService;
   productServiceExists = true;
 } catch (e) {
   productServiceExists = false;
